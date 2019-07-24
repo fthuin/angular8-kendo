@@ -1,21 +1,95 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="example-config">
+  <button kendo-button (click)="pdf.saveAs('invoice.pdf')">
+    Save As PDF...
+  </button>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+<kendo-pdf-export #pdf paperSize="A4" margin="2cm">
+
+
+<div>
+  {{ title }}
+
+  <button kendoButton (click)="onButtonClick()" [primary]="true">My Kendo UI Button</button>
+</div>
+
+<div>
+  <kendo-datepicker [value]="value"></kendo-datepicker>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-lg-3 example-col">
+    <p>Default Button</p>
+    <p class="k-block">
+      <kendo-dropdownbutton [data]="data">
+        User Settings
+      </kendo-dropdownbutton>
+    </p>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-lg-3 example-col">
+    <p>Primary Button</p>
+    <p class="k-block">
+      <kendo-dropdownbutton [data]="data" [primary]="true">
+        User Settings
+      </kendo-dropdownbutton>
+    </p>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-lg-3 example-col">
+    <p>Outline Button</p>
+    <p class="k-block">
+      <kendo-dropdownbutton [data]="data" [look]="'outline'">
+        User Settings
+      </kendo-dropdownbutton>
+    </p>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-lg-3 example-col">
+    <p>Bare Button</p>
+    <p class="k-block">
+      <kendo-dropdownbutton [data]="data" [look]="'bare'">
+        User Settings
+      </kendo-dropdownbutton>
+    </p>
+  </div>
+</div>
+
+<div class="example">
+  <div class="img" [ngStyle]="{ 'background-color': currentColor }"></div>
+  <div class="wrapper">
+    <kendo-colorgradient
+      [(value)]="currentColor"
+    >
+    </kendo-colorgradient>
+  </div>
+</div>
+
+<div>
+  <kendo-numerictextbox
+    [min]="0" [max]="100">
+  </kendo-numerictextbox>
+</div>
+
+<div>
+  <kendo-slider
+    [fixedTickWidth]="10"
+    [min]="0"
+    [max]="100"
+  ></kendo-slider>
+</div>
+
+<div>
+  <kendo-switch></kendo-switch>
+</div>
+
+<div>
+  <button class="k-button" (click)="show()">Notification button</button>
+</div>
+
+</kendo-pdf-export>
+
+<div>
+  <kendo-combobox [data]="listItems"></kendo-combobox>
+</div>
+
 
 <router-outlet></router-outlet>
